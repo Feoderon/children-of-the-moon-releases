@@ -1,0 +1,89 @@
+name: "🐛 Bug melden"
+description: "Fehler in Children of the Moon für Host und Mitspieler melden"
+title: "[BUG] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Testen! Bitte **keine Radmin-IP-Adressen, Passwörter, Zugangstokens oder privaten Daten** eintragen. Das Repository ist öffentlich.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "Im Launcher unter Experimental oder Stable, z. B. test-0.11.88"
+      placeholder: "test-0.11.88"
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Auf welchem Rechner?
+      options:
+        - "Host"
+        - "Client (beigetreten)"
+        - "Beide"
+        - "Einzelspieler"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Bereich
+      options:
+        - "Multiplayer / Synchronisierung"
+        - "Kampf / Gegner"
+        - "Bewegung / Steuerung"
+        - "Talente / XP"
+        - "Grafik / Animation"
+        - "Bauen / Welt"
+        - "Launcher / Updates"
+        - "Absturz / Performance"
+        - "Sonstiges"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Was ist passiert?
+      description: "Was genau sieht man? Falls Host und Client Unterschiedliches sehen, beide Ansichten beschreiben."
+      placeholder: "Mein Bruder sieht beim Dummy keinen Schaden, während ich 40/60 HP sehe."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Schritte zum Nachstellen
+      description: "Bitte so konkret, dass wir den Fehler selbst reproduzieren können."
+      placeholder: |
+        1. Host startet Koop-Spiel.
+        2. Client tritt über Radmin bei.
+        3. Host schlägt den Dummy.
+        4. Client beobachtet die HP-Anzeige.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Was sollte stattdessen passieren?
+      placeholder: "Beide Spieler sehen dieselben Lebenspunkte."
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Wie schwerwiegend?
+      options:
+        - "Blocker: Spiel / Multiplayer nicht spielbar"
+        - "Hoch: wichtige Funktion kaputt"
+        - "Mittel: Fehler mit Umweg"
+        - "Niedrig: Grafik / kleine Unstimmigkeit"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots / Logs (optional)
+      description: "Bilder in GitHub in dieses Feld ziehen. Keine privaten IPs oder Zugangsdaten veröffentlichen."
+      placeholder: "Screenshot / Fehlermeldung / Log-Auszug"
+    validations:
+      required: false
